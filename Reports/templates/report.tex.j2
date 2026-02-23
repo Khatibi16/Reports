@@ -1,0 +1,16 @@
+((*- extends 'article.tex.j2' -*))
+
+((* block packages *))
+\usepackage[a4paper,margin=12mm]{geometry}
+\usepackage{parskip}
+\usepackage{microtype}      % improves text sharpness/kerning
+\usepackage{hyperref}
+\usepackage{lmodern}        % better vector fonts
+\usepackage[T1]{fontenc}
+\usepackage{setspace}
+\setstretch{1.05}
+((* endblock packages *))
+
+((* block body *))
+((( super() )))
+((* endblock body *))

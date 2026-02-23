@@ -1,0 +1,119 @@
+
+/* compact_tight.css — tighter, more aesthetic print stylesheet */
+
+/* Page setup */
+@page {
+  size: A4;
+  margin: 12mm; /* slightly larger than extreme to keep balance */
+}
+
+/* Base */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  font-size: 11.5pt;
+  line-height: 1.18;
+  color: #222;
+  -webkit-text-size-adjust: none;
+  hyphens: auto;
+}
+
+/* Hide chrome */
+header, nav, footer, .navbar, .sidebar, .print-hide { display: none !important; }
+
+/* Headings: smaller, tighter spacing, good hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+  line-height: 1.08;
+  page-break-after: avoid;
+  page-break-inside: avoid;
+  color: #12323b;
+}
+
+/* Specific sizes and compact margins */
+h1 { font-size: 16.5pt; margin: 6px 0 6px 0; }
+h2 { font-size: 13.5pt; margin: 8px 0 6px 0; }
+h3 { font-size: 12pt; margin: 6px 0 4px 0; }
+h4 { font-size: 11pt; margin: 5px 0 4px 0; }
+
+/* Make headings visually distinct but not huge */
+.report-title { font-size: 15pt; margin-bottom: 4px; }
+.report-subtitle { font-size: 11pt; margin-bottom: 6px; color: #333; font-weight: 600; }
+
+/* Reduce paragraph spacing, but keep readability */
+p {
+  margin: 0 0 6px 0;
+  padding: 0;
+  line-height: 1.18;
+  orphans: 2;
+  widows: 2;
+}
+
+/* Avoid extra top whitespace after headings: if heading is followed by p, reduce top of p */
+h1 + p, h2 + p, h3 + p {
+  margin-top: 4px;
+}
+
+/* Compact lists */
+ul, ol {
+  margin: 0 0 6px 18px;
+  padding: 0;
+  line-height: 1.15;
+}
+li { margin: 0 0 4px 0; padding: 0; }
+
+/* Tables: tighter cell padding */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0 0 8px 0;
+  page-break-inside: avoid;
+  font-size: 10.5pt;
+}
+td, th {
+  padding: 6px 8px;
+  border: 1px solid #e1e1e1;
+  vertical-align: top;
+}
+
+/* Reduce large horizontal rule impact */
+hr {
+  border: none;
+  border-top: 1px solid #e0e0e0;
+  margin: 6px 0;
+}
+
+/* Smaller meta / caption text */
+.small, .meta, .caption { font-size: 9.5pt; color: #555; line-height: 1.1; }
+
+/* Image spacing */
+img { max-width: 100%; height: auto; display: block; margin: 6px 0; page-break-inside: avoid; }
+
+/* Remove extra whitespace reserved by certain generators */
+.block, .section, .content-block {
+  margin: 0 0 6px 0;
+  padding: 0;
+}
+
+/* Prevent headings from being orphaned — keep at least 2 lines with heading */
+h1, h2, h3 { keep-with-next: 2; }
+
+/* Reduce vertical spacing for emphasized inline text */
+strong, b { font-weight: 700; }
+
+/* If the generator inserts empty paragraphs for spacing, hide them */
+p:empty { display: none; }
+
+/* For print: avoid default browser extra margins and enforce tighter layout */
+@media print {
+  html, body { margin: 0; -webkit-print-color-adjust: exact; }
+  .no-margin-print { margin: 0 !important; padding: 0 !important; }
+}
+
+/* Utility classes you can add in HTML if you want extra compactness */
+.compact p { margin-bottom: 4px; font-size: 11pt; }
+.compact h2 { margin-bottom: 4px; }
+.tight-list li { margin-bottom: 3px; }
